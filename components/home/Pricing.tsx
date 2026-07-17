@@ -68,18 +68,35 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <a
-                href={whatsappUrl(`Merhaba, ${plan.name} paketi hakkında bilgi almak istiyorum.`)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`block text-center py-3 sm:py-3.5 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base ${
-                  plan.popular
-                    ? "bg-accent text-white hover:bg-accent-hover shadow-lg shadow-accent/20"
-                    : "border border-border text-foreground hover:bg-surface-alt"
-                }`}
-              >
-                Teklif Al
-              </a>
+              {plan.price === "Proje Bazlı" ? (
+                <a
+                  href={whatsappUrl(`Merhaba, ${plan.name} paketi hakkında bilgi almak istiyorum.`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block text-center py-3 sm:py-3.5 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base border border-border text-foreground hover:bg-surface-alt`}
+                >
+                  Teklif Al
+                </a>
+              ) : (
+                <a
+                  href={`/odeme?paket=${plan.name
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")
+                    .replace(/ş/g, "s")
+                    .replace(/ö/g, "o")
+                    .replace(/ü/g, "u")
+                    .replace(/ı/g, "i")
+                    .replace(/ç/g, "c")
+                    .replace(/ğ/g, "g")}`}
+                  className={`block text-center py-3 sm:py-3.5 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base ${
+                    plan.popular
+                      ? "bg-accent text-white hover:bg-accent-hover shadow-lg shadow-accent/20"
+                      : "border border-border text-foreground hover:bg-surface-alt"
+                  }`}
+                >
+                  Satın Al
+                </a>
+              )}
             </div>
           </StaggerItem>
         ))}

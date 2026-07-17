@@ -8,12 +8,12 @@ import { useTheme } from "next-themes";
 import { WhatsAppCTA } from "@/components/ui/WhatsAppCTA";
 
 const navLinks = [
-  { href: "#benefits", label: "Avantajlar" },
-  { href: "#portfolio", label: "Portfolyo" },
-  { href: "#demos", label: "Demolar" },
-  { href: "#pricing", label: "Fiyatlar" },
-  { href: "#process", label: "Süreç" },
-  { href: "#faq", label: "SSS" },
+  { href: "/#benefits", label: "Avantajlar" },
+  { href: "/portfolyo", label: "Portfolyo" },
+  { href: "/demolar", label: "Demolar" },
+  { href: "/fiyatlar", label: "Fiyatlar" },
+  { href: "/surec", label: "Süreç" },
+  { href: "/sss", label: "SSS" },
 ];
 
 export function Header() {
@@ -51,13 +51,13 @@ export function Header() {
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-muted hover:text-foreground transition-colors duration-200"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <WhatsAppCTA className="!px-5 !py-2.5 !text-sm" />
           <button
@@ -89,14 +89,14 @@ export function Header() {
       {menuOpen && (
         <div className="md:hidden bg-surface border-t border-border-light px-4 py-6 space-y-4">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="block text-base font-medium text-foreground"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <WhatsAppCTA className="w-full" />
         </div>

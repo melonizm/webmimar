@@ -1,13 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 import { SITE } from "@/lib/constants";
 
 const quickLinks = [
-  { href: "#benefits", label: "Avantajlar" },
-  { href: "#portfolio", label: "Portfolyo" },
-  { href: "#demos", label: "Demolar" },
-  { href: "#pricing", label: "Fiyatlar" },
-  { href: "#process", label: "Süreç" },
-  { href: "#faq", label: "SSS" },
+  { href: "/#benefits", label: "Avantajlar" },
+  { href: "/portfolyo", label: "Portfolyo" },
+  { href: "/demolar", label: "Demolar" },
+  { href: "/fiyatlar", label: "Fiyatlar" },
+  { href: "/surec", label: "Süreç" },
+  { href: "/sss", label: "SSS" },
 ];
 
 const services = [
@@ -30,7 +31,14 @@ export function Footer() {
             <p className="text-muted text-sm leading-relaxed max-w-sm mb-6">
               İşletmelerin dijital dünyada büyümesini sağlayan profesyonel web sitesi tasarım ajansı.
             </p>
-            <div className="space-y-2 text-sm text-foreground-light">
+            <div className="space-y-3 text-sm text-foreground-light">
+              <p className="flex items-start gap-2">
+                <span className="mt-0.5">📍</span>
+                <span className="leading-relaxed">
+                  KOCAELİ/GEBZE YAVUZ SELİM MAHALLESİ<br />
+                  ANKARA CADDESİ NO 138 DAİRE 2
+                </span>
+              </p>
               <p className="flex items-center gap-2">
                 <span>📧</span>
                 <a href={`mailto:${SITE.email}`} className="hover:text-accent transition-colors">
@@ -62,9 +70,9 @@ export function Footer() {
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-sm text-muted hover:text-foreground transition-colors duration-200">
+                  <Link href={link.href} className="text-sm text-muted hover:text-foreground transition-colors duration-200">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -75,24 +83,33 @@ export function Footer() {
             <ul className="space-y-2.5">
               {services.map((service) => (
                 <li key={service}>
-                  <a href="#pricing" className="text-sm text-muted hover:text-foreground transition-colors duration-200">
+                  <Link href="/fiyatlar" className="text-sm text-muted hover:text-foreground transition-colors duration-200">
                     {service}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border-light flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-8 border-t border-border-light flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-sm text-muted">© {new Date().getFullYear()} WebMimar. Tüm hakları saklıdır.</p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-sm text-muted hover:text-foreground transition-colors">
+          <div className="flex flex-wrap items-center gap-4 md:gap-6 justify-center">
+            <Link href="/mesafeli-satis-sozlesmesi" className="text-xs text-muted hover:text-foreground transition-colors">
+              Mesafeli Satış Sözleşmesi
+            </Link>
+            <Link href="/gizlilik-politikasi" className="text-xs text-muted hover:text-foreground transition-colors">
               Gizlilik Politikası
-            </a>
-            <a href="#" className="text-sm text-muted hover:text-foreground transition-colors">
+            </Link>
+            <Link href="/kullanim-sartlari" className="text-xs text-muted hover:text-foreground transition-colors">
               Kullanım Şartları
-            </a>
+            </Link>
+            <Link href="/iptal-iade-kosullari" className="text-xs text-muted hover:text-foreground transition-colors">
+              İptal / İade Koşulları
+            </Link>
+            <Link href="/teslimat-kosullari" className="text-xs text-muted hover:text-foreground transition-colors">
+              Teslimat Politikası
+            </Link>
           </div>
         </div>
       </div>
