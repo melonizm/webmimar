@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/demolar", label: "Demolar" },
   { href: "/fiyatlar", label: "Fiyatlar" },
   { href: "/surec", label: "Süreç" },
+  { href: "/blog", label: "Blog" },
   { href: "/sss", label: "SSS" },
 ];
 

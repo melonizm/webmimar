@@ -8,14 +8,15 @@ const quickLinks = [
   { href: "/demolar", label: "Demolar" },
   { href: "/fiyatlar", label: "Fiyatlar" },
   { href: "/surec", label: "Süreç" },
+  { href: "/blog", label: "Blog" },
   { href: "/sss", label: "SSS" },
 ];
 
 const services = [
-  "Kurumsal Web Sitesi",
-  "E-ticaret Sitesi",
-  "SEO Optimizasyonu",
-  "Mobil Uygulama",
+  { href: "/fiyatlar", label: "Kurumsal Web Sitesi" },
+  { href: "/fiyatlar", label: "E-ticaret Sitesi" },
+  { href: "/bolge/kocaeli", label: "Kocaeli Web Tasarım" },
+  { href: "/bolge/istanbul", label: "İstanbul Web Tasarım" },
 ];
 
 export function Footer() {
@@ -82,9 +83,9 @@ export function Footer() {
             <h4 className="font-heading text-sm font-semibold text-foreground mb-4">Hizmetler</h4>
             <ul className="space-y-2.5">
               {services.map((service) => (
-                <li key={service}>
-                  <Link href="/fiyatlar" className="text-sm text-muted hover:text-foreground transition-colors duration-200">
-                    {service}
+                <li key={service.href + service.label}>
+                  <Link href={service.href} className="text-sm text-muted hover:text-foreground transition-colors duration-200">
+                    {service.label}
                   </Link>
                 </li>
               ))}
